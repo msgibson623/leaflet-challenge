@@ -1,5 +1,5 @@
 // Creating map object
-var map = L.map("map",  {
+var map = L.map('map',  {
     center: [39.82860130003183, -98.5794689733809],
     zoom: 5,
     layers: []
@@ -16,8 +16,8 @@ var link = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.ge
 
 // Map Styling
 var mapStyle = {
-    color: "red",
-    fillColor: "orange",
+    color: 'red',
+    fillColor: 'orange',
     fillOpacity: 0.4,
     weight: 1.2
 }
@@ -26,11 +26,12 @@ var mapStyle = {
 function chooseColor(depth){
 
     // series of statements to test depth
-    if(depth <= 10) {return 'pink'}
-    else if(depth > 10 && depth <= 30) {return 'red'}
-    else if(depth > 30 && depth <= 50) {return 'purple'}
-    else if(depth > 50 && depth <= 90) {return 'blue'}
-    else if(depth > 90) {return 'green'}
+    if(depth <= 10) return 'pink'
+    else if(depth > 10 && depth <= 30) return 'red'
+    else if(depth > 30 && depth <= 50) return 'purple'
+    else if(depth > 50 && depth <= 90) return 'blue'
+    else if(depth > 90) return 'green'
+    else return 'black'
     
 }
 
@@ -47,7 +48,7 @@ d3.json(link).then(function(data) {
 
             //style each feature based on conditionals above
             return {
-                color: "red",
+                color: 'red',
                 fillColor: chooseColor(feature.geometry.coordinates[2]),
                 fillOpacity: 0.4,
                 weight: 1.2
